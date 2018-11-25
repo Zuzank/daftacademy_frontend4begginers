@@ -1,0 +1,465 @@
+/*
+html, body { 
+    height: 100%; 
+    width: 100%; 
+    margin:0 !important;
+}
+
+.menu-bar-items{
+  list-style-type: none;
+}
+
+
+.content-section{
+   background-color:red; width: auto; height: 100vh; 
+}
+
+.section-about__desc{
+
+}
+
+.image-band{
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+
+
+ul.band-members{
+    padding:0;
+    margin:0;
+}
+
+#home ul > li {
+    text-align: center;
+    float:left;
+}
+
+
+/*
+dobre ---->
+*/
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    background-color: #25072e;
+
+}
+
+
+
+h1, h2, h3 {
+
+    margin: 0;
+
+}
+
+
+
+ul {
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+
+/*
+
+ZAGADNIENIE PONADPROGRAMOWE
+
+
+
+Rekomendowany zestaw właściwości, które pozwalają na ukrycie tekstu w taki sposób,
+
+że będzie niewidoczny do standardowego użytkownika, a czytniki ekranowe wciąż będą go czytać.
+
+
+
+Więcej na ten temat: https://webaim.org/techniques/css/invisiblecontent/
+
+*/
+
+.screen-reader-only {
+
+    position: absolute;
+
+    left: -10000px;
+
+    top: auto;
+
+    width: 1px;
+
+    height: 1px;
+
+    overflow: hidden;
+
+}
+
+.menu-bar{
+    
+}
+
+.menu-bar-item a:hover, a:visited, a:link, a:active{
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: bold;
+    letter-spacing: 6.7px;
+    color: #ec008c;
+    text-decoration: none;
+}
+
+/* 
+
+Sekcja pomocnicza, aby zwizualizować pozycje głównych bloków strony. Będzie usunięta w następnych krokach.
+
+*/
+
+.page-header {
+
+  /*  background-color: #ffb1b1;
+*/
+}
+
+
+
+.page-content {
+
+    /*background-color: #b0ffb0;
+*/
+}
+
+.band-members{
+   
+    display: flex;
+    
+    /*justify-content: flex-end;
+    */
+
+    
+
+    align-items: baseline;
+
+    justify-content: center;
+
+    
+
+    padding: 100px;
+    
+}
+li band-members-item{
+
+    margin: 30px;
+    border: 30px;
+}
+.page-footer {
+
+    /*background-color: #7ba3ff;
+*/
+}
+
+.concerts{
+
+    display: flex;
+    
+    flex-wrap: wrap;
+    
+}
+.concerts__info{
+    
+}
+
+
+.content-section {
+
+   /*   
+    background-color: #ca9aca;
+*/
+    
+
+}
+
+.content-section:nth-child(odd) {
+/*
+    background-color: #e69fe6;
+*/
+}
+
+/* 
+
+Koniec sekcji pomocniczej
+
+*/
+
+
+
+/* 
+
+Ustawiając sekcje nagłówka i stopki w pozycji 'fixed' sprawiamy,
+
+że niezależnie od pozycji paska przewijania elementy te będą znajdowały się
+
+w tej samej pozycji względem okna przeglądarki. 
+
+Natomiast pozycję tę ustawiamy za pomocą parametrów 'top', 'bottom', 'right', 'left'.
+
+*/
+
+.page-header {
+
+    position: fixed;
+    
+    top: 30px;
+
+    left: 30px;
+
+}
+
+
+
+.page-footer {
+
+    position: fixed;
+
+    bottom: 30px;
+
+    left: 30px;
+
+}
+
+
+
+/*
+
+Lewy margines ustawiony na kontenerze z główną zawartością strony sprawia,
+
+że nie będzie ona nachodzić na nagłówek i stopkę niezależnie od pozycji paska przewijania.
+
+Na projekcie graficznym sekcja menu ma szerokość około 170px i jest oddalona od krawędzi ekranu
+
+o 50px, więc można założyć, że 220px marginesu będzie wartością stosunkowo bezpieczną.
+
+Z kolei spady (padding) nadane na kontener wyznaczają minimalną odległość, na jaką będzie oddalona
+
+treść strony od otaczających ją granic kontenera (wartość "0 10%" jest 
+
+skrótem od padding-top: 0, padding-bottom: 0, padding-left: 10%, padding-right: 10%).
+
+Właściwość "text-align: right" przykleja zawartość do prawej strony
+
+(oddziałuje na elementy, które są elementami inline'owymi, np. tekst, znaczniki <a>, <span> czy elementy z nadanym stylem "display: inline-block").
+
+*/
+
+.page-content {
+
+    
+    margin-left: 220px;
+
+    padding: 0 10%;
+
+    text-align: right;
+
+}
+
+
+
+/* 
+
+Projekt graficzny zakłada, że każda sekcja strony będzie wypełniać całą wysokość okna przeglądarki
+
+lub więcej, jeśli zawartość danej sekcji jest wyższa. Dlatego świetnym rozwiązaniem
+
+będzie użycie jednostki "vh", która oznacza 1% wysokości okna przeglądarki z właściwością "min-height",
+
+która wymusza wysokość elementu na zadaną wartość lub wyższą.
+
+*/
+
+.content-section {
+
+    justify-content: flex-end;
+    min-height: 100vh;
+
+}
+
+
+.content-section__header{
+    font-size: 28px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: bold;
+    letter-spacing: 4.5px;
+    color: #ec008c;
+    
+}
+
+.section-about__desc{
+    background-color: #ccc8ff;    
+}
+
+.section-about__header{
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: bold;
+    letter-spacing: 3.8px;
+    color: #dbd8fb;
+    
+    
+}
+
+
+.section-about__desc-header{
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    color: #dbd8fb;
+    opacity: 0.8;
+    
+}
+
+.concerts__date{
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: bold;
+    letter-spacing: 3.8px;
+    color: #dbd8fb;
+}
+
+.concerts__location{
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    color: #dbd8fb;
+    opacity: 0.8;
+}
+
+.form__label{
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    color: #dbd8fb;
+    opacity: 0.8;
+}
+
+.address_info{
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    color: #dbd8fb;
+    opacity: 0.8;
+}
+
+.band-member-info{
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    color: #dbd8fb;
+    opacity: 0.8;
+}
+
+.kupa{
+    width:500px;
+    height: 400px;
+}
+
+.section-about__desc{
+    width: 400px;
+    height: auto;
+}
+
+.about-section{
+    display: flex;
+}
+
+.gallery{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.gallery__image{
+
+    margin: 5px;
+    height: 180px;
+    width: 240px; /* comment this out when changing flex-direction to column */
+    
+}
+
+.contact-section{
+    margin: 40px;
+    display: flex;
+    align-items:center;
+    flex-wrap: wrap;
+}
+
+.address_info{
+    margin: 10px;
+}
+
+.form_item{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 40px;
+    margin-top: 10px;
+    
+}
+
+.button{
+    margin-left: 40px;
+    display: flex;
+    margin-top: 30px;
+    
+}
+
+.video-section{
+    display: flex;
+    justify-content: flex-end;
+}
+.concerts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.concerts__image{
+    margin-top: 30px; 
+    margin-left:30px;
+    
+    width:300px;
+    height:200px;
+}
+
+.concerts__info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   margin-left: 30px;
+}
+
+.buttonn    {
+    display: flex;
+    align-items: flex-end;
+}
